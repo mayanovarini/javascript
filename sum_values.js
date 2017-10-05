@@ -12,5 +12,10 @@ function sumSalaries(obj){
   return value.reduce((acc,val) => acc + val);
 }
 
+function count(obj) { 
+  return Object.keys(obj).length;
+}
+
 alert( sumSalaries(salaries) ); // 650
 
+alert( count(salaries));
