@@ -5,7 +5,7 @@ function aclean(arr) {
 
   for(let word of arr) {
     // split the word by letters, sort them and join back
-    let sorted = word.toLowerCase().split('').sort().join(''); // (*)
+    let sorted = word.toLowerCase().split('').sort().join('');
 
     /* 
     If we ever meet a word the same letter-sorted form again, 
