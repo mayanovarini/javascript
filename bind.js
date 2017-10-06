@@ -12,3 +12,14 @@ var greetThem = hello.bind(me, "lucas", "jill"); // return the function definiti
 
 greetThem("matt", "gigi"); // amount of arguments are correctly corresponding to the function definition
 // Maya says hello to lucas, jill, matt, gigi
+
+
+var you = {
+	name: "Noodles";
+	greet: function(){
+		setTimeout(function(){
+			console.log("Hi, this is $(this.name");
+		}.bind(this), 2000); // without bind, invoking the function later, 
+		// will make 'this' a global variable / undefined
+	}
+}
