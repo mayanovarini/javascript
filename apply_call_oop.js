@@ -22,6 +22,6 @@ function Motorcycle(make, model, year){
 function Motorcycle(make, model, year){
 	// arguments is a special keyword
 	// arguments is an array-like object storing all of the arguments that will be pased into the function
-	car.apply(this, arguments); 
+	Car.apply(this, arguments); 
 	this.numWheels = 2;
 }
