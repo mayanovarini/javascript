@@ -18,6 +18,30 @@
 	</div>
 
 <script>
+
+	/* Steps on Ajax request :
+
+	1. Select the HTML element - the trigger and the container of incoming data
+	
+	2. Create a variable that stores XHR object
+
+	3. XHR object GET/other HTTP Verb the data from URL of the API 
+
+	4. XHR send the request state on #3
+
+	--- when onreadystatechange, 4 && 200 ---
+
+	5. Parse the data into JSON
+
+	6. Retrieve just what's needed
+
+	7. Reassigning / appending the container with the incoming data 
+
+	VOILA! You just successfully learnt and implemented Ajax!
+
+
+
+	*/
 	var btn = document.querySelector("#btn");
 	var img = document.querySelector("#photo");
 
