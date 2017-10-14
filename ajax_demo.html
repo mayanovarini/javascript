@@ -26,13 +26,13 @@
 		//make the request
 		var XHR = new XMLHttpRequest();
 
-		XHR.open("GET","http://dog.ceo/api/breeds/image/random");
-		XHR.send();
+		XHR.open("GET","http://dog.ceo/api/breeds/image/random"); //tell what type of request to make (e.g GET, PUT, PATCH, DELETE)
+		XHR.send(); // initiate the request
 
 		XHR.onreadystatechange = function(){
-			if(XHR.readyState == 4 && XHR.status == 200){
-				var url = JSON.parse(XHR.responseText).message;
-				img.src = url;
+			if(XHR.readyState == 4 && XHR.status == 200){ // loaded, ready and works
+				var url = JSON.parse(XHR.responseText).message; // retrieve just the message value from the JSON data
+				img.src = url; // replace the image with the new JSON data
 			}
 		}
 
