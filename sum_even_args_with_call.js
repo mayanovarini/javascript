@@ -7,3 +7,4 @@ function sumEvenArgs(){
 		return acc;
 	}, 0) // start reduce with 0
 }
+

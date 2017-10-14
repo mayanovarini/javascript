@@ -4,7 +4,7 @@ that allows you to update a private variable but
 the variable wouldn't be accessible from outside the function 
 without the use of a helper function.
 */
-
+f
 
 function counter() {
   var _counter = 0;

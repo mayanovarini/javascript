@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>Give me dog pictures</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
+
+
+</head>
+<body>
+	<div class="container">
+		<h1 style="text-align:left; color: #519599; font-family: 'Gochi Hand', cursive;">Have you seen a dog picture today?</h1>
+		<img style="width:100% height: 100vh" id="photo" src="http://cdn3-www.dogtime.com/assets/uploads/gallery/pembroke-welsh-corgi-dog-breed-pictures/prance-8.jpg" alt="dog">
+		<button type="button" class="btn btn-success" id="btn" style="margin: 2em; text-align: center">No, show me!</button>
+	</div>
+
+<script>
+	var btn = document.querySelector("#btn");
+	var img = document.querySelector("#photo");
+
+	//listen for clicks
+	btn.addEventListener("click", function(){
+		//make the request
+		var XHR = new XMLHttpRequest();
+
+		XHR.open("GET","http://dog.ceo/api/breeds/image/random");
+		XHR.send();
+
+		XHR.onreadystatechange = function(){
+			if(XHR.readyState == 4 && XHR.status == 200){
+				var url = JSON.parse(XHR.responseText).message;
+				img.src = url;
+			}
+		}
+
+	});
+</script>
+</body>
+</html>
