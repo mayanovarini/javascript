@@ -4,13 +4,37 @@
 	<meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-	<title>Give me dog pictures</title>
+	<title>Bitcoin Current Prices</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
 </head>
 <body>
 
+	<h1>Bitcoin current price is : <span id="price"></span></h1>
+
+	<button id="btn">Refresh Data</button>
+
 	<script>
+		var btn = document.querySelector("#btn");
+		var priceDisplay = document.querySelector("#price");
+
+		//listen for clicks
+		btn.addEventListener("click", function(){
+			//make the request
+			var XHR = new XMLHttpRequest();
+
+			XHR.open("GET","http://api.coindesk.com/v1/bpi/currentprice.json"); //tell what type of request to make (e.g GET, PUT, PATCH, DELETE)
+			XHR.send(); // initiate the request
+
+			XHR.onreadystatechange = function(){
+				if(XHR.readyState == 4 && XHR.status == 200){ // loaded, ready and works
+					var result = JSON.parse(XHR.responseText);
+					var price = result.bpi.USD.rate;
+					priceDisplay.innerText = "$ " + price;
+				}
+			}
+
+		});
 		
 	</script>
 </body>
