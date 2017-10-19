@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>API sample with XHR, Fetch, jQuery and Axios</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+		body {
+		  font-family: 'Roboto';
+		  color: #2c3e50;
+		  text-align: center;
+		}
+
+		#quote {
+		  font-size: 20px;
+		}
+
+		.container {
+		  display: flex;
+		  justify-content: space-around;
+		  flex-wrap: wrap;
+		}
+
+
+		button {
+		  margin-top: 300px;
+		  margin-bottom: 20px;
+		  background: red;
+		  border: none;
+		  outline: none;
+		  height: 40px;
+		  text-align: center;
+		  width: 130px;
+		  border-radius: 40px;
+		  background: #fff;
+		  border: 2px solid #1abc9c;
+		  color: #1abc9c;
+		  letter-spacing: 1px;
+		  text-shadow: 0;
+		  font-size: 20px;
+		  font-weight: bold;
+		  cursor: pointer;
+		  -webkit-transition: all 0.25s ease;
+		  transition: all 0.25s ease;
+		      font-family: 'Roboto', sans-serif;
+
+
+		}
+
+		button:hover {
+		  color: white;
+		  background: #1abc9c;
+		}
+	</style>
+</head>
+<body>
+	<button id="xhr">XHR</button>
+	<button id="fetch">Fetch</button>
+	<button id="jquery">jQuery</button>
+	<button id="axios">Axios</button>
+
+	<p id="quote">Let me say something</p>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<script>
+
+	var url = 'https://ron-swanson-quotes.herokuapp.com/v2/quotes';
+	var xhrBtn = document.querySelector('#xhr');
+	var fetchBtn = document.querySelector('#fetch');
+	var jqueryBtn = document.querySelector('#jquery');
+	var axiosBtn = document.querySelector('#axios');
+	var display = document.querySelector("#quote");
+
+	xhrBtn.addEventListener("click", function(){
+		var XHR = new XMLHttpRequest();
+
+			XHR.open("GET", url); //tell what type of request to make (e.g GET, PUT, PATCH, DELETE)
+			XHR.send(); // initiate the request
+
+			XHR.onreadystatechange = function(){
+				if(XHR.readyState == 4 && XHR.status == 200){
+					var quote = JSON.parse(XHR.responseText)[0]; 
+					display.innerText = quote;
+				}
+			}
+		XHR.open("GET", url);
+		XHR.send();
+	});
+
+	fetchBtn.addEventListener("click", function(){
+		fetch(url)
+		.then(function(req){
+			req.json().then(function(data){
+				display.innerText = data[0];
+			})
+		})
+		.catch(function(){
+			alert("ERROR!")
+		})
+	});
+
+	$("#jquery").click(function(){
+		$.getJSON(url)
+		.done(function(data){
+			$("#quote").text(data[0]); // show only the first item in the array each click event
+		})
+		.fail(function(){
+			alert("Oh no!");
+		})
+	});
+
+	axiosBtn.addEventListener("click", function(){
+		axios.get(url)
+		.then(function(res){
+			display.innerText = res.data[0];
+		})
+		.catch(function(){
+			alert("Error!");
+		})
+	});
+
+</script>
+
+
+</body>
+</html>
