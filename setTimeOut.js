@@ -1,5 +1,5 @@
 var timerId = setTImeout(function() {
-	console.log("This function runds in 30 seconds");
+	console.log("This function runs in 30 seconds");
 }, 30000); // this will never run
 
 setTImeout(function() {
