@@ -1,0 +1,154 @@
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Header */
+
+.header {
+  background-color: white;
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+  height: 75px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+.header h3 {
+  color: MediumAquamarine;
+}
+.header nav {
+  display: inline-block;
+}
+.header a {
+  color: black;
+}
+.header .logo {
+  display: inline-flex;
+}
+
+/* columns */
+
+.columns {
+  display: flex;
+  padding-top: 75px;
+}
+.columns h2 {
+  font-family: Georgia;
+  font-size: 23px;
+  color: black;
+}
+.mother h2,
+.earth h2,
+.research h2,
+.cats h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+}
+.columns .large {
+  width: 630px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.columns .large .left,
+.columns .large .right {
+  display: flex;
+  flex-flow: row wrap;
+}
+.columns .large .left-and-right {
+  display: flex;
+}
+.mother h2 {
+  background-image: url(https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-main.png);
+  height: 300px;
+  font-size: 40px;
+}
+.earth h2 {
+  background-image: url(https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-2.png);
+  height: 300px;
+}
+.research h2 {
+  background-image: url(https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-3.png);
+  height: 300px;
+}
+.cats h2 {
+  background-image: url(https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-4/img-story-1.png);
+  height: 300px;
+}
+.columns .medium {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.columns .small {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+.columns .small h2 {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+.columns .small ul {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: WhiteSmoke;
+  font-family: Verdana;
+  font-size: 12px;
+  color: DimGray;
+  padding: 0;
+}
+.columns .small span {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+.large,
+.medium,
+.small {
+}
+.story {
+  padding: 20px;
+}
+
+/* Footer */
+
+.footer {
+  height: 300px;
+  background-color: MediumAquamarine;
+  margin: auto;
+  font-family: Verdana;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer .first {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+}
+.footer h3 {
+  font-family: Georgia;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+.footer a {
+  color: black;
+}
+.footer .copyright {
+  margin: 0;
+}
