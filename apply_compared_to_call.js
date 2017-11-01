@@ -7,7 +7,7 @@ let calcOne = {
 }
 
 let calcTwo = {
-	brand = "sony",
+	brand : "sony",
 }
 
 sumThem.call(calcOne, 1,2,3,4);
