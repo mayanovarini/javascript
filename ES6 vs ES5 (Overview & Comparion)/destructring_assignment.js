@@ -24,7 +24,7 @@ let obj = { a: 1 }
 let list = [ "hello" ]
 
 let { a, b = 2 } = obj
-let [ x, y = "world" ] = list
+let [ x, y = "world!" ] = list
 
 console.log(a) // 1 
 console.log(b) // 2 
