@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>HackerNews</title>
+</head>
+
+<style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400);
+
+body {
+  font: normal normal 13px/14px "Open Sans", sans-serif;
+  background: #dfdfdf;
+}
+
+.container {
+  padding: 20px;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background: white;
+  border-radius: 5px;
+}
+
+#banner {
+  background: #D6654D;
+  padding: 10px;
+}
+
+#news {
+  display: none;
+}
+
+input {
+  padding: 4px 15px 4px 5px;
+}
+
+#submitHead {
+  display: inline-block;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2px;
+  padding: 5px 15px;
+}
+
+#button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+ol li {
+  padding: 5px;
+  color: #000;
+}
+
+ol li:nth-child(even) {
+  background: #dfdfdf;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
+</style>
+
+<body>
+
+<html>
+<head>
+  <title>Hacker News</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2 id="banner">Hacker News <span id="submitHead">submit</span></h2>
+    <form id="news">
+      <input id="list" name="ListItem" type="text"> <button id="button2">submit</button>
+    </form><br>
+    <ol></ol>
+  </div>
+
+  <a href="https://codepen.io/mayano/pen/vWxBgy">Demo</a>
+</body>
+</html>
+
+<script>
+$(document).ready(function() {
+  $('#submitHead').click(function(){
+    $('#news').show();
+  });
+  
+  $("#news").submit(function(e) {
+    var toAdd = $("input[name=ListItem]").val();
+    $("ol").append("<li>" + toAdd + "</li>");
+    e.preventDefault();
+  });
+
+});
+	
+</script>
+</body>
+</html>
