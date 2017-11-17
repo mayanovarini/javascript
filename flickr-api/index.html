@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<head>
+  <title>Flickr API</title>
+  <style>
+  	body {
+	  background-color: #E3E2DF;
+	  font-family: 'Nixie One';
+	  font-size: 25px;
+	  padding: 1em 3em;
+	  color: #18243F;
+	}
+
+	span {
+	  font-size: 15px;
+	  padding: 5px;
+	}
+
+	#search {
+	  display: flex;
+	  justify-content: left;
+	}
+
+	input {
+	  font-size: 1em;
+	  color: #18243F;
+	  width: 30%;
+	  padding: 5px 10px;
+	}
+
+	.thumbs {
+	  float: left;
+	  background-color: #EEE;
+	}
+
+	#results {
+	  margin-top: 20px;
+	}
+
+	#results > div {
+	  display: inline-block;
+	  width: 200px;
+	  height: 200px;
+	  background-position: cover;
+	}
+
+	#results > div > div {
+	  padding-top: 60px;
+	  height: 100%;
+	  box-sizing: border-box;
+	  overflow: hidden;
+	  background: rgba(255, 255, 255, .5);
+	  text-align: center;
+	}
+  </style>
+</head>
+
+<body>
+  <h1>Flickr Search <span id="dev">by Maya Novarini</span></h1>
+
+  <form id="search">
+    <input id="searchTerm" type="text"></input>
+  </form>
+
+  <div id="results">
+
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script>
+  	const flickerAPI2 =
+	  "https://api.flickr.com/services/rest?" +
+	  "api_key=1bf2605a5de1ae211ed5985b71dd9aa1" +
+	  "&format=json&callback=?";
+
+	const flickerPhotoSearch = flickerAPI2 + "&method=flickr.photos.search&extras=views,owner_name";
+
+	function photoURL(photo) {
+	  return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+	}
+
+	$(document).ready(function() {
+	  $("h1").click(function() {
+	    $("#dev").fadeToggle();
+	  });
+
+	  $("#searchTerm").change(function() {
+	    var searchTerm = $("#searchTerm").val();
+	    var url = flickerPhotoSearch + "&text=" + searchTerm;
+
+	    $.getJSON(url)
+	      .fail(function(jqxhr, textStatus, error) {
+	        console.error(textStatus, error);
+	      });
+	  });
+	  
+	  $('#search').submit(function(e){
+	    e.preventDefault();
+	  });
+	});
+
+	function jsonFlickrApi(data) {
+	  var photos = data.photos.photo;
+	  $('#results').html('');
+	  for (var i=0; i < photos.length; i++) {
+	    var photo = photos[i];
+	    console.log(photo)
+	    var url = photoURL(photo);
+	    
+	    var photoEl = $(`<div style="background-image:url(${url})"><div>${photo.views}<br/>${photo.ownername}</div></div>`)
+	    
+	    $('#results').append(photoEl);
+	    
+	  }
+	}
+  </script>
+</body>
+</html>
