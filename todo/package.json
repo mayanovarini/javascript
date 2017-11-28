@@ -1,0 +1,24 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "to do list built with reactjs and express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maya novarini",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegirlfromipanema/javascript.git"
+  },
+  "keywords": [
+    "todo",
+    "react",
+    "express"
+  ],
+  "bugs": {
+    "url": "https://github.com/thegirlfromipanema/javascript/issues"
+  },
+  "homepage": "https://github.com/thegirlfromipanema/javascript#readme"
+}
