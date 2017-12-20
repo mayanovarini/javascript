@@ -12,6 +12,8 @@ Memory Complexity
 Constant, O(1).
 */
 
+arr = [3,7,1,2,8,4,5];
+
 let find_missing = function(input) {
   //  calculate sum of all integers
   //  in input list
