@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <p>Lottery Numbers Machine</p><button onclick="myFunction()">Generate Lottery Numbers</button>
+  <p id="lotteryNumber1">Number1</p>
+  <p id="lotteryNumber2">Number2</p>
+  <p id="lotteryNumber3">Number3</p>
+  <p id="lotteryNumber4">Number4</p>
+  <p id="lotteryNumber5">Number5</p>
+  <p id="lotteryNumber6">Number6</p>
+
+  <script>
+
+    function myFunction() {
+      var mySet = new Set();
+      var myArr = [];
+      while (myArr.length < 6) {
+        // store only unique numbers into the array
+        myArr = [...mySet.add(Math.floor(Math.random() * 44 + 1))];
+      }
+      for (let i = 1; i < myArr.length + 1; i++) {
+        document.getElementById("lotteryNumber" + i).innerHTML = myArr[i - 1]
+      }
+    }
+  </script>
+</body>
+</html>
