@@ -21,8 +21,8 @@ class School {
 		);
 	}
 	static pickSubstituteTeacher(substituteTeachers) {
-		let substituteTeachersIndex = Math.floor(Math.random() * substituteTeachers.length);
-		return substituteTeachers[substituteTeachersIndex];
+		let teacherIndex = Math.floor(Math.random() * substituteTeachers.length);
+		return substituteTeachers[teacherIndex];
 	}
 }
 
